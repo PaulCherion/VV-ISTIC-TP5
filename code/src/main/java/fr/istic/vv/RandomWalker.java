@@ -1,27 +1,3 @@
-# Random Wikipedia walker
-
-Using Selenium, create a small program that, starting from the main page https://www.wikipedia.org/, walks trough a sequence of random links and takes a snapshot of the last page.
-The process is as follows:
-
- 1. Navigate to the main page https://www.wikipedia.org/
- 2. Select a random link in the page
- 3. Navigate to the link
- 4. Repeat steps 2 to 3 until you have visited 10 different pages
- 5. Take a snapshot of the current page and save it
-
-Include the code of the walker and the snapshot in this document.
-
-## Answer
-Nous avons ajouté un try/catch atour de la boucle pour terminer correctement l'exécution en cas de timout du driver.
-En effet, pour une raison inconnue le driver échoue parfois à cliquer sur le lien choisi et s'arrête là. 
-Enfin, nous avons restreint le choix des liens à ceux du corps de la page Wikipedia afin de rester sur des pages internes et éviter les pages sans lien/avec sécurité.
-
-### Capture d'une des pages trouvées
-![page](../images/savedPage.png)
-
-### Code java
-
-```java
 package fr.istic.vv;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -45,7 +21,7 @@ public class RandomWalker {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         options.addArguments("--start-maximized");
-        
+
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
@@ -56,7 +32,7 @@ public class RandomWalker {
     public static void main(String[] args) {
 
         WebDriver driver = configureDriver();
-        
+
         driver.get(URL);
         String title = driver.getTitle();
         System.out.println("Bienvenue sur " + title);
@@ -103,5 +79,3 @@ public class RandomWalker {
         return links.get(r.nextInt(links.size()));
     }
 }
-
-```
