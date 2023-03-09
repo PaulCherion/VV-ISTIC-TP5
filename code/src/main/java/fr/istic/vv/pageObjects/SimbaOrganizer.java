@@ -1,14 +1,8 @@
-## Page Object Model
+package fr.istic.vv.pageObjects;
 
-The image below shows the poll page of the [Simba Organizer](https://github.com/barais/doodlestudent/) application discussed in classes.
+import java.time.LocalDateTime;
+import java.util.List;
 
-![Simba Organizer Poll page](simba-poll-page.png)
-
-Write in this document the interface of a page object class for this page.
-
-## Answer
-
-```java
 public interface SimbaOrganizer {
     String getName();
     SimbaOrganizer typeName(String name);
@@ -20,6 +14,7 @@ public interface SimbaOrganizer {
     SimbaOrganizer setPrefenrencesAlim(boolean value);
     CalendarView calendarView();
     TableauView tableauView();
+    SimbaOrganizer selectFirstChoice();
     List<OptionPanel> options();
     SimbaOrganizer submitWishes();
     String CommentCreator();
@@ -35,4 +30,3 @@ interface OptionPanel {
     boolean checkBox();
     SimbaOrganizer setCheckBox();
 }
-```

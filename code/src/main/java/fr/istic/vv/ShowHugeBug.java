@@ -1,21 +1,13 @@
-## Find a bug
+package fr.istic.vv;
 
-Clone the [Simba Organizer repository](https://github.com/selabs-ur1/doodle) and follow the instructions to run the application on your machine.
+import fr.istic.vv.pageObjects.SimbaOrganizer;
+import fr.istic.vv.pageObjects.SimbaOrganizerImpl;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
-Find a bug in the application. 
-
-With the help of Selenium and the Page Object Model desing pattern write a simple test that fails for this bug.
-
-Optionally make a pull request to the project.
-
-Include in this document the code of the test and, if you did it, the link to the pull request.
-
-## Answer
-
-Lorsqu'on met un nom d'utilisateur très long, la validation du champ provoque une erreur 500 côté Backend.
-Voici le code qui utilise Selenium pour reproduire le bug.
-
-```java
+import java.time.Duration;
 
 public class ShowHugeBug {
 
@@ -50,8 +42,3 @@ public class ShowHugeBug {
                 .submitWishes();
     }
 }
-
-```
-
-Voici une capture de l'erreur provoquée :  
-![img.png](../images/error.png)
